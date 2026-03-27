@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
   <title>Skibidi</title>
   <style>
     :root {
@@ -10,6 +12,12 @@
       --my: 50vh;
       --rx: 0deg;
       --ry: 0deg;
+      --bg1: #050505;
+      --bg2: #0d0d0d;
+      --bg3: #161616;
+      --text: #f5f5f5;
+      --muted: rgba(255,255,255,0.16);
+      --soft: rgba(255,255,255,0.06);
     }
 
     html, body {
@@ -18,11 +26,11 @@
       margin: 0;
       overflow: hidden;
       background:
-        radial-gradient(circle at 50% 50%, rgba(45, 95, 255, 0.20), transparent 26%),
-        radial-gradient(circle at 15% 20%, rgba(170, 40, 255, 0.12), transparent 22%),
-        radial-gradient(circle at 85% 80%, rgba(0, 255, 210, 0.10), transparent 24%),
-        linear-gradient(180deg, #02030a 0%, #000 100%);
-      color: #fff;
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 22%),
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05), transparent 18%),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,0.04), transparent 20%),
+        linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 100%);
+      color: var(--text);
       font-family: ui-serif, Georgia, "Times New Roman", serif;
       cursor: none;
     }
@@ -45,17 +53,17 @@
       pointer-events: none;
     }
 
-    .nebula {
+    .mist {
       position: fixed;
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at var(--mx) var(--my), rgba(100, 180, 255, 0.18), transparent 16%),
-        radial-gradient(circle at calc(var(--mx) * 0.7) calc(var(--my) * 1.1), rgba(120, 80, 255, 0.14), transparent 18%),
-        radial-gradient(circle at calc(var(--mx) * 1.2) calc(var(--my) * 0.8), rgba(255, 0, 180, 0.10), transparent 14%);
-      filter: blur(18px) saturate(1.3);
+        radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,0.12), transparent 15%),
+        radial-gradient(circle at calc(var(--mx) * 0.72) calc(var(--my) * 1.08), rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at calc(var(--mx) * 1.18) calc(var(--my) * 0.82), rgba(255,255,255,0.06), transparent 14%);
+      filter: blur(18px) saturate(0);
       mix-blend-mode: screen;
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     .scene {
@@ -71,7 +79,7 @@
       transform-style: preserve-3d;
       transform: rotateX(var(--rx)) rotateY(var(--ry));
       will-change: transform;
-      filter: drop-shadow(0 0 20px rgba(90, 170, 255, 0.35));
+      filter: drop-shadow(0 0 18px rgba(255,255,255,0.12));
     }
 
     .title-wrap::before {
@@ -80,8 +88,8 @@
       inset: -120px -170px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at center, rgba(110, 160, 255, 0.22), transparent 42%),
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.10), transparent 58%);
+        radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 44%),
+        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
       filter: blur(30px);
       animation: glow 5s ease-in-out infinite;
       transform: translateZ(-120px);
@@ -96,13 +104,12 @@
       line-height: 0.95;
       text-align: center;
       letter-spacing: 0.05em;
-      color: #f8fbff;
+      color: var(--text);
       text-shadow:
-        0 0 6px rgba(255,255,255,0.85),
-        0 0 18px rgba(88, 175, 255, 0.6),
-        0 0 42px rgba(43, 96, 255, 0.42),
-        0 0 90px rgba(140, 0, 255, 0.16);
-      -webkit-text-stroke: 1px rgba(180, 220, 255, 0.18);
+        0 0 4px rgba(255,255,255,0.55),
+        0 0 18px rgba(255,255,255,0.16),
+        0 0 36px rgba(255,255,255,0.08);
+      -webkit-text-stroke: 1px rgba(255,255,255,0.18);
       user-select: none;
       animation: breathe 5s ease-in-out infinite;
     }
@@ -114,10 +121,10 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      border: 1px solid rgba(225, 245, 255, 0.95);
+      border: 1px solid rgba(255,255,255,0.95);
       box-shadow:
-        0 0 12px rgba(95, 185, 255, 0.85),
-        0 0 36px rgba(95, 185, 255, 0.22);
+        0 0 10px rgba(255,255,255,0.45),
+        0 0 26px rgba(255,255,255,0.12);
       pointer-events: none;
       opacity: 0;
       transform: translate(-50%, -50%) scale(1);
@@ -131,11 +138,11 @@
       content: "";
       position: absolute;
       inset: 50%;
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(90,175,255,0.20), transparent 60%);
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 60%);
       filter: blur(12px);
     }
 
@@ -154,15 +161,15 @@
       pointer-events: none;
       opacity: 0.95;
       transform-origin: left center;
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(140,210,255,1), rgba(255,255,255,0));
-      box-shadow: 0 0 12px rgba(110, 190, 255, 0.8);
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));
+      box-shadow: 0 0 10px rgba(255,255,255,0.55);
       z-index: 9;
       mix-blend-mode: screen;
     }
 
     @keyframes glow {
-      0%, 100% { transform: translateZ(-120px) scale(0.96); opacity: 0.6; }
-      50% { transform: translateZ(-120px) scale(1.05); opacity: 0.95; }
+      0%, 100% { transform: translateZ(-120px) scale(0.96); opacity: 0.5; }
+      50% { transform: translateZ(-120px) scale(1.05); opacity: 0.9; }
     }
 
     @keyframes breathe {
@@ -186,7 +193,7 @@
 </head>
 <body>
   <canvas id="stars"></canvas>
-  <div class="nebula"></div>
+  <div class="mist"></div>
 
   <div class="scene">
     <div class="title-wrap" id="titleWrap">
@@ -277,8 +284,8 @@
 
     function drawBackground(x, y) {
       const g = ctx.createRadialGradient(x, y, 0, x, y, Math.max(w, h) * 0.6);
-      g.addColorStop(0, 'rgba(70, 150, 255, 0.22)');
-      g.addColorStop(0.35, 'rgba(120, 70, 255, 0.08)');
+      g.addColorStop(0, 'rgba(255,255,255,0.12)');
+      g.addColorStop(0.35, 'rgba(255,255,255,0.05)');
       g.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, w, h);
@@ -330,7 +337,7 @@
 
         const life = Math.max(p.life, 0);
         ctx.beginPath();
-        ctx.fillStyle = `rgba(130, 205, 255, ${life})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${life})`;
         ctx.arc(p.x, p.y, p.size * life, 0, Math.PI * 2);
         ctx.fill();
 
@@ -343,14 +350,12 @@
         const len = 90 * d.life;
         const width = 3 * d.life;
         const alpha = Math.max(d.life, 0);
-        const dx = Math.cos(d.angle) * len;
-        const dy = Math.sin(d.angle) * len;
 
         ctx.save();
         ctx.translate(d.x, d.y);
         ctx.rotate(d.angle);
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(150, 220, 255, ${alpha})`;
+        ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
         ctx.lineWidth = width;
         ctx.lineCap = 'round';
         ctx.moveTo(-len * 0.55, 0);
